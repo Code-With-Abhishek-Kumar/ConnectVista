@@ -1,0 +1,250 @@
+body {
+
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html , body{
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+#nav_part1{
+  width: 20%;
+  height: 100%;
+  border-radius: 12px;
+  /* background-color: red; */
+}
+
+#nav_part2{
+  width: fit-content;
+  /* background: green; */
+  border: 2px solid black;
+  background-color: white;
+  padding: 0px 2px;
+  display: flex;
+ 
+ align-items: center;
+  height: 100%;
+  border-radius: 12px;
+}
+
+#nav_part2 i{
+ font-size: 1.5rem;
+ margin-left: 1vw;
+}
+
+
+
+#nav_part3{
+  margin-right: 4vw;
+  width: 10%;
+  gap: 30px;
+  height: 100%;
+  border-color: yellow;
+  border-radius: 12px;
+}
+
+#nav_part3 button{
+ padding: 14px 18px;
+ border-radius: 12px;
+ color: white;
+ background-color: purple;
+}
+
+#login-form{
+  width: 100vw;
+  display: flex;
+  position: relative;
+  /* background-color: yellowgreen; */
+  background: gainsboro;
+  height: 100vh;
+}
+
+#login-form #left{
+width: 60%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: left;
+height: 100%;
+/* background-color: red; */
+}
+
+
+#login-form #right{
+  width: 40%;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  /* background-color: red; */
+  }
+
+#login-form #left h1{
+ font-size: 2.5rem;
+ font-weight: 700;
+ color: rgb(5, 90, 248);
+}
+  
+#login-form #left p{
+  font-size: 1.5rem;
+ }
+   
+ 
+
+
+#login-form  #right div{
+  /* display: none; */
+  padding: 30px 20px;
+  background-color: white;
+  box-shadow: 2px gray;
+  display: flex;
+  gap: 15px;
+flex-direction: column;
+
+  width: 350px;
+  /* background-color: yellowgreen; */
+  height: 50%;
+  border: 2px solid black;
+  border-radius: 12px;
+}
+
+
+#login-form  #right div form{
+  gap: 15px;
+  display: flex;
+flex-direction: column;
+}
+
+
+#login-form form button{
+
+  background-color: rgb(2, 56, 252);
+  width: 100%;
+  padding: 10px 10px;
+  height: 7vh;
+color: white;
+border-radius: 65px;
+  font-size: 1.5rem;
+ 
+}
+
+#login-form div button{
+
+  background-color: rgb(2, 56, 252);
+  width: 100%;
+  padding: 10px 10px;
+  height: 7vh;
+color: white;
+border-radius: 65px;
+  font-size: 1.5rem;
+ 
+}
+
+#login-form form input{
+  /* display: none; */
+
+  padding: 20px 20px;
+  border-radius: 32px;
+
+ 
+}
+
+#login-form form input[type="email"]{
+border: 2px solid gray;
+width: 100%;
+
+ 
+}
+
+#login-form form input[type="password"]{
+  border: 2px solid gray;
+  width: 100%;
+   
+  }
+
+
+  #edit_profile{
+    display: none;
+  }
+
+
+  .card{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    
+    overflow: hidden;
+    height: 450px;
+    /* padding: 12px 12px; */
+    border-radius: 12px;
+    /* background-color: green; */
+    border: 2px solid white;
+  }
+  .card .image{
+width: 100%;
+height: 100%;
+
+  }
+
+  .card .image img{
+    width: 100%;
+    height: 100%;
+    
+      }
+    
+
+  .card .video{
+    width: 100%;
+    height: 100%;
+  
+      }
+
+      .card .video video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+    
+
+  .user_detail{
+    padding: 5px 5px;
+  }
+
+ 
+  .user_detail{
+    /* background: red; */
+padding-left: 10px;
+  }
+
+  .cursor{
+    transition: all ease-in 0.001s;
+    filter: blur(50px);
+    transform: translate(-50%, -50%);
+  }
+
+  #profile_menu{
+    /* display: none; */
+    transition: all ease-in 0.2s;
+    opacity: 0;
+    border-radius: 15px;
+    /* scale: 0; */
+  }
+
+  #profile_menu a{
+  padding: 5px 6px;
+  } 
