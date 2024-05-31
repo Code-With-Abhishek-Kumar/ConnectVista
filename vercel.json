@@ -3,16 +3,16 @@
     "version": 2,
     "builds": [
       {
-        "src": "bin/www",
-        "use": "@now/node"
+        "src": "./app.js",
+        "use": "@vercel/node"
       }
     ],
     "routes": [
       {
        
-        "src": "./(.*)",
+        "src": "/(.*)",
         
-        "dest": "bin/www"
+        "dest": "/"
       }
     ]
   }
