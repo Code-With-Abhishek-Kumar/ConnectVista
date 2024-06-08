@@ -25,15 +25,18 @@ let ProfileController = async function (req, res, next) {
     let Post = Posts.map(function (elem) {
     //  console.log()
      User.post.push(elem._id.toString())
-      return elem;
+    return elem;
 
     })
-    console.log(User)
-// console.log(Post)
+    // console.log(User)
+
+ 
+// console.log(Post.length)
 
     let data = {
       title: `👤 Profile ${User.firstName + " " + User.surname}`,
       ProfilePicture: User.Profile_Image,
+      isAdmin: true,
       firstName: User.firstName,
       surname: User.surname,
       bio: User.bio,
@@ -48,4 +51,4 @@ let ProfileController = async function (req, res, next) {
   }
 }
 
-module.exports = ProfileController
+module.exports = ProfileController;

@@ -1,0 +1,40 @@
+<%- include('./Include/header' , title) %>
+    <%- include('./Include/nav' , title) %>
+
+        <main class=" bg-black w-screen flex h-screen justify-center overflow-hidden">
+
+
+            <div class="mt-20 h-[100vh] w-[35vw] overflow-y-scroll overflow-x-scroll bg-red-600 ">
+
+
+                <div class="h"></div>
+                <% Posts.forEach(element=> { %>
+                
+
+                        <% if (element.video) { %>
+                            <div class="h-[80%] w-full bg-black  border-2 border-red-800  leading-3 my-7">
+                            <video src="/images/Uploads/<%- element.video  %> " controls loop muted
+                                class="w-full h-full object-contain"></video>
+
+
+                            </div>
+
+
+                            <% } %>
+
+
+
+                   
+
+
+                    <% }) %>
+
+
+
+            </div>
+
+        </main>
+
+
+
+        <%- include('./Include/footer') %>

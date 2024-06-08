@@ -11,11 +11,16 @@ let mainController = async function (req, res, next) {
   
     let User = await userSchema.findOne({ mobileNo_Email: decoded.mobileNo_Email})
     //  console.log(User._id)
-    let Posts = await postSchema.find()
-    // console.log(Posts)
+    let Posts = await postSchema.find().populate('user');
 
-    let AllUser = await userSchema.find()
-    console.log(AllUser)
+
+    console.log( Posts)
+    // Posts.forEach(function(a){
+    // console.log(a)
+    // })
+   
+    // let AllUser = await userSchema.find()
+    // console.log(AllUser)
     let data = {
       title:"mainPage",
       ProfilePicture : User.Profile_Image,
@@ -23,6 +28,7 @@ let mainController = async function (req, res, next) {
       surname: User.surname,
       bio: User.bio,
       id: User._id,
+      Posts,
     }
   
     res.render('main', data);

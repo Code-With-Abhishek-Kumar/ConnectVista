@@ -10,15 +10,18 @@ let postSchema = mongoose.Schema({
         type:String,
         default:new Date(),
     },
-    user:String,
+    user:{
+        type: mongoose.Schema.ObjectId,
+        ref: "user",
+    },
     comment:[{
         type: mongoose.Schema.ObjectId,
-        ref: "comment",
+        ref: "user",
 
     }],
     like:[{
         type: mongoose.Schema.ObjectId,
-        ref: "like",
+        ref: "user",
 
     }]
 

@@ -29,124 +29,176 @@
 
 
             <div id="edit_btn" class="w-5/6">
-                <button class="rounded-lg  text-white p-2 mt-3 w-full border-2 border-white" id="edit_btn">Edit
-                    Profile</button>
+                <% if (!Post) { %>
+                    <p>No Post</p>
+                    <% } %>
+
+
+                        <% if (isAdmin) { %>
+                            <button class="rounded-lg  text-white p-2 mt-3 w-full border-2 border-white"
+                                id="edit_btn">Edit
+                                Profile</button>
+                            <% } else{%>
+                                <button class="rounded-lg  text-white p-2 mt-3 w-full border-2 border-white hidden"
+                                    id="edit_btn">Edit
+                                    Profile</button>
+
+                                <% } %>
+
+
             </div>
-            <div id="button" class="text-black flex gap-4 mt-3">
-                <button class="rounded-lg text-white p-2 border-2 border-white">Post</button>
-                <button class="rounded-lg text-white p-2 border-2 border-white">Follower</button>
-                <button class="rounded-lg text-white p-2 border-2 border-white ">Following</button>
+            <div id="button" class="text-black flex gap-10 mt-7">
+
+                <button class=" text-white   border-t-2 border-red-800 flex flex-col items-center  px-2 leading-3 py-2">
+
+                    <p class="text-xl"><%- Post.length %> </p>
+                    <p> Post</p>
+
+                </button>
+                <button class=" text-white   px-2 border-t-2 border-red-800 flex flex-col items-center leading-3 py-2">
+                    <p class="text-xl"> 1K </p>
+                    <p class="text-sm"> Follower</p>
+
+
+                </button>
+                <button class=" text-white   px-2 border-t-2 border-red-800 flex flex-col items-center leading-3 py-2">
+                    <p class="text-xl">255 </p>
+                    <% if (!Post) { %>
+                        <p class="absolute top-0 right-0 text-white">No Post Found</p>
+                        <% } %>
+
+                            <p> Following</p>
+
+                </button>
             </div>
 
         </div>
-<!-- <div id="view_elem"  class="flex-col ml-[25%] w-2/3 h-screen absolute z-50 top-0 bg-amber-400 right-[0%] text-black p-6 items-center"></div> -->
+        <!-- <div id="view_elem"  class="flex-col ml-[25%] w-2/3 h-screen absolute z-50 top-0 bg-amber-400 right-[0%] text-black p-6 items-center"></div> -->
 
-<div class="cursor w-36 rounded-full h-36 bg-green-700 absolute z-10 pointer-events-none"></div>
+        <div class="cursor w-36 rounded-full h-36 bg-green-700 absolute z-10 pointer-events-none"></div>
         <div id="post_user"
             class="w-9/12 h-screen overflow-y-scroll overflow-x-hidden bg-black absolute top-0 right-0 ">
-            <div class="card_container p-5 h-fit  z-40 absolute top-0 w-full items-center justify-center  flex flex-wrap gap-11">
+            <div
+                class="card_container p-5 h-fit  z-40 absolute top-0 w-full items-center justify-center  flex flex-wrap gap-11">
+
+
+
+
                 <% Post.forEach(element=> { %>
+                    <% if (!element.image || !element.video ) { %>
+                        <p class="absolute top-0 right-0 text-white">No Post</p>
+                        <% } %>
 
 
-                    <% if (element.image) { %>
-                        <div class="card">
-                            <div class="user_detail h-20 p-3 w-full flex items-center justify-center gap-4 ">
-                                <div class="bg-black h-full w-14 ">
-                                    <img src="<%-  ProfilePicture %> " alt class="rounded-full w-14 h-12 object-cover">
-                                </div>
-                                <div class="text-white w-3/4">
-                                    <p class="font-medium text-lg"><%- firstName %> <%-surname %></p>
-                                    <p class="font-thin text-sm">
-                                        <%= element.date %>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="image mt-3">
-                                <img src="/images/Uploads/<%- element.image %> " alt="" srcset="" class="object-fill">
-                            </div>
-                        </div>
-                        <%} else { %>
-
-                            <div class="card">
-                                <div class="user_detail h-20 p-3 w-full flex items-center justify-center gap-4 ">
-                                    <div class="bg-black h-full w-14 ">
-                                        <img src="<%-  ProfilePicture %> " alt
-                                            class="rounded-full w-14 h-12  object-center">
+                            <% if (element.image) { %>
+                                <div class="card">
+                                    <div class="user_detail h-20 p-3 w-full flex items-center justify-center gap-4 ">
+                                        <div class="bg-black h-full w-14 ">
+                                            <img src="<%-  ProfilePicture %> " alt
+                                                class="rounded-full w-14 h-12 object-cover">
+                                        </div>
+                                        <div class="text-white w-3/4">
+                                            <p class="font-medium text-lg"><%- firstName %> <%-surname %></p>
+                                            <p class="font-thin text-sm">
+                                                <%= element.date %>
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="text-white  w-3/4">
-                                        <p class="font-medium text-lg"><%- firstName %> <%-surname %></p>
-                                        <p class="font-thin text-sm">
-                                            <%= element.date %>
-                                        </p>
+                                    <div class="image mt-3">
+                                        <img src="/images/Uploads/<%- element.image %> " alt="" srcset=""
+                                            class="object-fill">
                                     </div>
                                 </div>
-                                <div class="video mt-3">
-                                    <video loop muted autoplay src="/images/Uploads/<%- element.video %> "></video>
-                                </div>
-                            </div>
+                                <%} else { %>
 
-
-
-
-                            <% } %>
-
-
-
-                                <% }) %>
-
-                                    <div class="flex-col ml-[25%] w-full h-screen absolute top-0 bg-amber-400 -left-[25%] text-black p-6 items-center"
-                                        id="edit_profile">
-                                        <h2 class="text-center text-xl my-6">Edit Profile</h2>
-                                        <form action="/edit" method="post"
-                                            class="w-full h-full flex items-center flex-col gap-5"
-                                            enctype="multipart/form-data">
-
-                                            <div class="flex gap-3 items-center">
-                                                <label for="firstName" class="text-xl">First Name</label>
-                                                <input type="text" value="<%- firstName %>"
-                                                    class="p-2 border-2 m-2 border-black rounded-md" name="firstName"
-                                                    onkeyup="this.value = this.value.toUpperCase()">
-                                                <label for="Surname" class="text-xl">Surname</label>
-                                                <input type="text" value="<%-  surname %>"
-                                                    class=" p-2 border-2 m-2 border-black rounded-md" name="surname"
-                                                    onkeyup="this.value = this.value.toUpperCase()">
+                                    <div class="card">
+                                        <div
+                                            class="user_detail h-20 p-3 w-full flex items-center justify-center gap-4 ">
+                                            <div class="bg-black h-full w-14 ">
+                                                <img src="<%-  ProfilePicture %> " alt
+                                                    class="rounded-full w-14 h-12  object-center">
                                             </div>
-                                            <div class="w-2/4 h-8 my-10 flex items-center ">
-                                                <label for="Email" class="text-xl">Email</label>
-
-
-                                                <input type="text" value="<%-   mobileNo_Email  %>"
-                                                    class=" whitespace-normal   p-3 border-2 m-2 border-black rounded-md h-full text-justify text-clip text-wrap w-full overflow-hidden"
-                                                    name="Email">
-
+                                            <div class="text-white  w-3/4">
+                                                <p class="font-medium text-lg"><%- firstName %> <%-surname %></p>
+                                                <p class="font-thin text-sm">
+                                                    <%= element.date %>
+                                                </p>
                                             </div>
-
-                                            <div class="w-2/4 h-fit flex gap-3 items-center">
-                                                <p class="text-xl">Edit Photo</p>
-                                                <label for="File_Upload"
-                                                    class="text-xl w-fit h-7 bg-green-600 flex items-center gap-2 p-5 rounded-lg ">
-                                                    <ion-icon name="cloud-upload-outline" class="text-2xl"></ion-icon>
-                                                    <h3>Upload</h3>
-                                                    <input type="file" class="hidden" name="Profile_Image"
-                                                        id="File_Upload">
-
-                                                </label>
-                                            </div>
-
-                                            <div class="w-2/4 h-fit flex gap-3 items-center">
-                                                <label for="Bio" class="text-xl">Bio</label>
-                                                <input type="text" value="<%-  bio %>"
-                                                    class="  whitespace-normal p-2 border-2 m-3 border-black rounded-md h-40 text-justify text-clip text-wrap w-full overflow-hidden"
-                                                    name="bio">
-                                            </div>
-
-
-                                            <div class="flex w-full h-9 items-center justify-center mt-10">
-                                                <button type="submit"
-                                                    class=" p-3 border-2 m-3 bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded-md ">Update</button>
-                                            </div>
-                                        </form>
+                                        </div>
+                                        <div class="video mt-3">
+                                            <video loop muted autoplay
+                                                src="/images/Uploads/<%- element.video %> "></video>
+                                        </div>
                                     </div>
+
+
+
+
+                                    <% } %>
+
+
+
+                                        <% }) %>
+
+                                         
+            </div>
+
+            <div class="flex-col ml-[25%] w-[75vw] h-screen right-0 fixed z-40 top-0 bg-amber-400  text-black p-6 items-center"
+            id="edit_profile">
+            <h2 class="text-center text-xl my-6">Edit Profile</h2>
+            <form action="/edit" method="post"
+                class="w-full h-full flex items-center flex-col gap-5"
+                enctype="multipart/form-data">
+
+                <div class="flex gap-3 items-center">
+                    <label for="firstName" class="text-xl">First Name</label>
+                    <input type="text" value="<%- firstName %>"
+                        class="p-2 border-2 m-2 border-black rounded-md"
+                        name="firstName"
+                        onkeyup="this.value = this.value.toUpperCase()">
+                    <label for="Surname" class="text-xl">Surname</label>
+                    <input type="text" value="<%-  surname %>"
+                        class=" p-2 border-2 m-2 border-black rounded-md"
+                        name="surname"
+                        onkeyup="this.value = this.value.toUpperCase()">
+                </div>
+                <div class="w-2/4 h-8 my-10 flex items-center ">
+                    <label for="Email" class="text-xl">Email</label>
+
+
+                    <input type="text" value="<%-   mobileNo_Email  %>"
+                        class=" whitespace-normal   p-3 border-2 m-2 border-black rounded-md h-full text-justify text-clip text-wrap w-full overflow-hidden"
+                        name="Email">
+
+                </div>
+
+                <div class="w-2/4 h-fit flex gap-3 items-center">
+                    <p class="text-xl">Edit Photo</p>
+                    <label for="File_Upload"
+                        class="text-xl w-fit h-7 bg-green-600 flex items-center gap-2 p-5 rounded-lg ">
+                        <ion-icon name="cloud-upload-outline"
+                            class="text-2xl"></ion-icon>
+                        <h3>Upload</h3>
+                        <input type="file" class="hidden" name="Profile_Image"
+                            id="File_Upload">
+
+                    </label>
+                </div>
+
+                <div class="w-2/4 h-fit flex gap-3 items-center">
+                    <label for="Bio" class="text-xl">Bio</label>
+                    <input type="text" value="<%-  bio %>"
+                        class="  whitespace-normal p-2 border-2 m-3 border-black rounded-md h-40 text-justify text-clip text-wrap w-full overflow-hidden"
+                        name="bio">
+                </div>
+
+
+                <div class="flex w-full h-9 items-center justify-center mt-10">
+                    <button type="submit"
+                        class=" p-3 border-2 m-3 bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded-md ">Update</button>
+                </div>
+            </form>
+        </div>
     </main>
     <script src="/javascripts/profile.js" defer></script>
     <%- include('./Include/footer') %>
