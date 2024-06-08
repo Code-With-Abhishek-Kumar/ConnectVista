@@ -5,6 +5,10 @@
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/app.js"
     }
@@ -17,7 +21,9 @@
       "runtime": "@vercel/node"
     }
   },
-  "scripts": {
-    "dev": "nodemon ./bin/www"
-  }
+  "devCommand": "nodemon ./bin/www",
+  "cleanUrls": true,
+  "public": true,
+  "installCommand": "npm install"
+
 }
