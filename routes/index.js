@@ -26,21 +26,7 @@ const transporter = require('../utility/nodemailer')
 router.get('/sent', async function (req, res, next) {
  
 try {
-  const info = await transporter.sendMail({
-    from: 'abhishek9661342993@gmail.com', // sender address
-    to: "techcraftsmanpro@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: `<b>Hii </b> <br/>
-    <h1> Dear Abhishek </hi>   <br/>
-    <p> Your registration was successful. Welcome aboard!</p> <br/>
-    <img src="https://imgs.search.brave.com/C-2MMFHtoIk426ILbhWwVe--6a1Rlw17gXCbMWwppTA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNDY0/NzQwNzgyL3Bob3Rv/L3JlZ2lzdGVyLmpw/Zz9iPTEmcz0xNzA2/NjdhJnc9MCZrPTIw/JmM9UG8zUlI5R0Zh/MzJsVXBKTjBaS2Mx/cWh4TlhCaWdBWFZI/NVhwclpZLS1BTT0" />
-    
-    
-    ` // html body
-  });
-
-  res.send('Email sent: ' + info.response);
+ 
 
   // transporter.sendMail(mailOptions, function(error, info){
   //   if (error) {

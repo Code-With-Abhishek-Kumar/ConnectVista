@@ -16,14 +16,7 @@
   "env": {
     "NODE_ENV": "development"
   },
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "@vercel/node"
-    }
-  },
   "devCommand": "nodemon ./bin/www",
-  "cleanUrls": true,
   "public": true,
   "installCommand": "npm install"
-
 }
