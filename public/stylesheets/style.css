@@ -120,9 +120,9 @@ height: 100%;
   gap: 15px;
 flex-direction: column;
 
-  width: 350px;
+  width: 370px;
   /* background-color: yellowgreen; */
-  height: 50%;
+  height: 60%;
   border: 2px solid black;
   border-radius: 12px;
 }

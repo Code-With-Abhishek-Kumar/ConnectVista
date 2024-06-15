@@ -15,6 +15,9 @@ const multerConfig = require('../utility/multerConfig')
 var jwt = require('jsonwebtoken');
 const isLoggedin = require('../Middleware/isLogeedin')
 
+const SetNewPasswordController = require('../Controllers/SetNewPasswordController.js')
+const forgotController = require('../Controllers/forgotController.js')
+const  OtpController = require('../Controllers/otpController.js')
 const userSchema = require('../models/userSchema')
 let postSchema = require('../models/postSchema')
 // const connectMongo = require('../Middleware/connection');
@@ -80,6 +83,8 @@ router.get('/', function (req, res, next) {
 
 
 router.get('/Reels', reelsController);
+
+
 
 router.get('/like/:id', LikeController );
 
@@ -152,6 +157,15 @@ router.get('/profile/:id', isLoggedin ,  async function (req, res, next) {
 
 
 });
+
+
+router.get('/forgot-password', forgotController.ForgotPassword );
+router.get('/otp', OtpController.otp  );
+router.post('/otp',  OtpController.Process_Otp );
+router.get('/password', SetNewPasswordController);
+
+router.post('/forgot-password', forgotController.processForgotForm );
+
 
 router.post('/Post', isLoggedin , multerConfig.fields([{ name: 'image', maxCount: 1 }, { name: 'Video_file', maxCount: 1 }]), PostController);
 

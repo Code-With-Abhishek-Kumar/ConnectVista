@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+ 
+</head>
+
+<body>
+
+
+
+<div class="form-gap"></div>
+<div class="container " style="height: 100vh; width: 100vw; display: flex; flex-direction: column;  ">
+	<div class="row" >
+		<div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default"  style="margin-top: 20vh;">
+              <div class="panel-body">
+                <div class="text-center">
+             
+                  
+                   
+                  
+
+               
+                 
+                
+                
+                   
+                 
+             
+
+                <% if (otp) { %>
+                    <% if (incorrect) { %>
+                 
+                    <p style="color: red; font-size: 2rem;">Incorrect OTP</p>
+                    <% } %>
+                  <h2 class="text-center">OTP</h2>
+                    
+                  <h3 style="display: block;"><i class="fa fa-lock fa-4x"></i></h3>
+                  <p>Please check your Gmail inbox for the OTP we sent. Confirm its receipt, please.</p>
+
+
+                <% } else if (email) { %>
+                  <h2 class="text-center">Email</h2>
+                  <h3> <i class="fa-solid fa-envelope fa-4x"></i></h3>
+                  <p class="bg-green-700">You can reset your password here.</p>
+                   <% } else if (password) { %>
+
+                    <h2 class="text-center">Password</h2>
+                    
+                      <i class="fa-solid fa-lock fa-5x"></i>
+                    </h3>
+                    <p class="bg-green-700" style="margin-top: 4px;">Set New Password</p>
+
+                    <% }%>
+
+
+
+
+
+                  
+              
+                  
+                  
+                  
+                  
+                
+                 
+                  <div class="panel-body">
+
+                 
+                     
+                    <% if (otp) { %>
+                      <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="/otp">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <span class="input-group-addon"> <i class="fa-solid fa-key color-blue"></i></span>
+                                  <input id="otp" name="otp" placeholder="Otp" class="form-control"  type="number" required>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                          </div>
+                          <input type="hidden" class="hide" name="token" id="token" value=""> 
+                      </form>
+                  <% } else if (email) { %>
+                      <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="/forgot-password">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                  <input id="email" name="email" placeholder="email address" class="form-control"  type="email" required>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                          </div>
+                          <input type="hidden" class="hide" name="token" id="token" value=""> 
+                      </form>
+                  <% } else if (password) { %>
+                      <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="/otp">
+                          <div class="form-group">
+                              <div class="input-group" style="margin-bottom: 8px;">
+                                  <span class="input-group-addon"> <i class="fa-solid fa-key color-blue"></i>
+                                
+                                  </span>
+                                  <input id="otp" name="otp" placeholder="Password" class="form-control"  type="text" required >
+                              </div>
+                              <div class="input-group">
+                                  <span class="input-group-addon"> <i class="fa-solid fa-key color-blue"></i></span>
+                                  <input id="otp" name="otp" placeholder="Password" class="form-control"  type="password" required>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                          </div>
+                      </form>
+                  <% } %>
+                  
+
+                  
+                  
+                  
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+	</div>
+</div>
+
+
+
+<script src="/javascripts/common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js" defer></script>
+</body>
+
+</html>
