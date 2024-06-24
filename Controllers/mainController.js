@@ -13,11 +13,9 @@ let mainController = async function (req, res, next) {
     //  console.log(User._id)
     let Posts = await postSchema.find().populate('user');
 
+    console.log(Posts)
 
-    console.log( Posts)
-    // Posts.forEach(function(a){
-    // console.log(a)
-    // })
+  
    
     // let AllUser = await userSchema.find()
     // console.log(AllUser)
@@ -29,6 +27,8 @@ let mainController = async function (req, res, next) {
       bio: User.bio,
       id: User._id,
       Posts,
+     
+    
     }
   
     res.render('main', data);

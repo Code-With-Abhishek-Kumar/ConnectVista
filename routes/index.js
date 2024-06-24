@@ -26,25 +26,7 @@ const transporter = require('../utility/nodemailer')
 
 
 
-router.get('/sent', async function (req, res, next) {
- 
-try {
- 
 
-  // transporter.sendMail(mailOptions, function(error, info){
-  //   if (error) {
-  //     console.log(` Error:` ,  error);
-  //   } else {
-  //     console.log('Email sent: ' + info.response);
-  //   }
-  // });
-  
-} catch (error) {
-  res.send(error);
-}
-
-
-});
 
 
 
@@ -80,6 +62,13 @@ router.get('/', function (req, res, next) {
 
 });
 
+
+router.get('/feed', function (req, res, next) {
+  // res.render('feed');
+  res.redirect('/main')
+
+
+});
 
 
 router.get('/Reels', reelsController);
@@ -163,8 +152,10 @@ router.get('/forgot-password', forgotController.ForgotPassword );
 router.get('/otp', OtpController.otp  );
 router.post('/otp',  OtpController.Process_Otp );
 router.get('/password', SetNewPasswordController);
+router.post('/password', SetNewPasswordController.Process_Password);
 
 router.post('/forgot-password', forgotController.processForgotForm );
+
 
 
 router.post('/Post', isLoggedin , multerConfig.fields([{ name: 'image', maxCount: 1 }, { name: 'Video_file', maxCount: 1 }]), PostController);

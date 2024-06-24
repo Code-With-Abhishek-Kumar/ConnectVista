@@ -23,6 +23,12 @@ let postSchema = mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: "user",
 
+    }],
+
+    Dislike:[{
+        type: mongoose.Schema.ObjectId,
+        ref: "user",
+
     }]
 
 

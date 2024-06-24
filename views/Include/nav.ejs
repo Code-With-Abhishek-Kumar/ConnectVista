@@ -1,99 +1,59 @@
-<nav class="flex gap-12 bg-black w-screen h-17 p-4 justify-between absolute top-0 z-50">
+<nav class="flex gap-12 bg-black w-screen h-17 p-4 justify-between  top-0 z-50 fixed top-0">
     <div id="nav_part1">
         <h1 class="text-white text-2xl ml-4">ConnectVista</h1>
 
     </div>
     <div id="nav_part2">
-        <!-- <i class="fa fa-search" aria-hidden="true"></i>
+        <!-- 
+        <div id="search">
+<i class="fa fa-search" aria-hidden="true"></i>
         <input type="search" name="" id="" placeholder="Try Saree, Kurti or Search by Product"
-            class="h-14 rounded-md "> -->
+            class="h-14 rounded-md w-full  "> 
+    </div> 
+    -->
+        <div id="nav_link">
             <ol class="flex gap-6 text-white">
                 <li class="inline "><a href="/main">
-                    Home 
+                        Home
 
-                </a></li>
+                    </a></li>
                 <li class="inline "> <a href="/Reels">
 
-                    Reels
+                        Reels
 
-                </a> </li>
+                    </a> </li>
                 <li class="inline ">User </li>
             </ol>
+        </div>
     </div>
     <div id="nav_part3" class="flex gap-3">
-        <a href="/notification">
-            <div id="notification" class="flex flex-col text-white items-center content-between">
-
-                <i class="fa-solid  text-2xl fa-bell"></i>
-                <i class="fa fa-picture-o text-white text-2xl" aria-hidden="true"></i>
-                <!-- <span class="text-xs 200 font-bold ">notification</span> -->
-            </div>
-
-        </a>
-
-        <div id="profile" class="flex flex-col text-white items-center  relative content-between">
-
-            <i class="fa-solid text-2xl fa-user"></i>
-
-            <div id="profile_menu"
-                class="w-20 h-1 absolute items-center overflow-hidden border-white border-2 top-7 flex flex-col -gap-2">
-                <a href="/profile" class="h-10  border-white border-y-2 w-full flex items-center justify-center">
-                    <div class="elem  ">
-                        <p class="text-md  font-bold uppercase">profile</p>
-
-                    </div>
-
-
-                </a>
-
-                <a href="/analyzer" class="h-10  border-white border-y-2 w-full flex items-center justify-center">
-                    <div class="elem  ">
-                        <p class="text-md  font-bold uppercase">ANALYZER</p>
-
-                    </div>
-
-
-                </a>
-                <!-- PROFILE ANALYZER -->
-                <script>
-
-                    let profile = document.querySelector('#profile i')
-                    let profilemenu = document.querySelector('#profile_menu')
-                    profile.addEventListener('mouseenter', function () {
-
-                        gsap.to('#profile_menu', {
-                            height: "15vh",
-                            width: "160px",
-                            opacity: 1,
-
-                        })
-                    })
-
-                    profile_menu.addEventListener('mouseleave', function () {
-
-                        gsap.to('#profile_menu', {
-                            height: "0px",
-                            width: "80px",
-                            opacity: 0,
-
-                        })
-                    })
-                </script>
-
-                <a href="/logout" class="h-10  border-white border-y-2 w-full  flex items-center justify-center">
-                    <div class="elem  ">
-                        <p class="text-md  font-bold uppercase">logout</p>
-
-                    </div>
 
 
 
-                </a>
-
-
-            </div>
-
+        <div id="nav-icon" class="flex gap-6">
+            <a href="#">
+                <div id="search" class="flex flex-col text-white items-center content-between">
+                    <i class="fa-solid fa-magnifying-glass text-2xl "></i>
+                    <!-- <span class="text-xs 200 font-bold ">Search</span> -->
+                </div>
+    
+            </a>
+    
+    
+    
+    
+            <a href="/notification">
+                <div id="notification" class="flex flex-col text-white items-center content-between">
+    
+                    <i class="fa-solid  text-2xl fa-bell"></i>
+                    <i class="fa fa-picture-o text-white text-2xl" aria-hidden="true"></i>
+                    <!-- <span class="text-xs 200 font-bold ">notification</span> -->
+                </div>
+    
+            </a>
         </div>
+   
+       
 
 
 

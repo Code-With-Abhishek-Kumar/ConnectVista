@@ -252,3 +252,26 @@ padding-left: 10px;
   #profile_menu a{
   padding: 5px 6px;
   } 
+
+  .icon{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  margin-left: 5vw;
+    margin-top: 10px;
+   
+
+  }
+
+
+  .icon a {
+    display: flex;
+    gap: 12px;
+   
+  }
+
+  .icon p {
+   font-size: 1.5rem;
+  
+  }

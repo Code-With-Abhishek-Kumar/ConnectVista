@@ -43,13 +43,14 @@
                 
                    
                  
-             
+        
 
                 <% if (otp) { %>
-                    <% if (incorrect) { %>
-                 
-                    <p style="color: red; font-size: 2rem;">Incorrect OTP</p>
-                    <% } %>
+                  <% if (error) { %>
+                    <div class="alert alert-danger">
+                        <p><%- error %></p>
+                    </div>
+                <% } %>
                   <h2 class="text-center">OTP</h2>
                     
                   <h3 style="display: block;"><i class="fa fa-lock fa-4x"></i></h3>
@@ -57,7 +58,14 @@
 
 
                 <% } else if (email) { %>
+                
                   <h2 class="text-center">Email</h2>
+                  <% if (error) { %>
+                    <div class="alert alert-danger">
+                        <p><%- error %></p>
+                    </div>
+                <% } %>
+
                   <h3> <i class="fa-solid fa-envelope fa-4x"></i></h3>
                   <p class="bg-green-700">You can reset your password here.</p>
                    <% } else if (password) { %>
@@ -97,7 +105,7 @@
                           <div class="form-group">
                               <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
                           </div>
-                          <input type="hidden" class="hide" name="token" id="token" value=""> 
+                          
                       </form>
                   <% } else if (email) { %>
                       <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="/forgot-password">
@@ -110,20 +118,20 @@
                           <div class="form-group">
                               <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
                           </div>
-                          <input type="hidden" class="hide" name="token" id="token" value=""> 
+                          
                       </form>
                   <% } else if (password) { %>
-                      <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="/otp">
+                      <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="/password">
                           <div class="form-group">
                               <div class="input-group" style="margin-bottom: 8px;">
                                   <span class="input-group-addon"> <i class="fa-solid fa-key color-blue"></i>
                                 
                                   </span>
-                                  <input id="otp" name="otp" placeholder="Password" class="form-control"  type="text" required >
+                                  <input id="password" name="password" placeholder="Enter your new password" class="form-control"  type="text" required >
                               </div>
                               <div class="input-group">
                                   <span class="input-group-addon"> <i class="fa-solid fa-key color-blue"></i></span>
-                                  <input id="otp" name="otp" placeholder="Password" class="form-control"  type="password" required>
+                                  <input id="Confirm_password" name="Confirm_password" placeholder="Confirm your new password" class="form-control"  type="password" required>
                               </div>
                           </div>
                           <div class="form-group">

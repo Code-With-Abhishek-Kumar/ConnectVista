@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
         },
         filename: function (req, file, cb , err) {
             crypto.randomBytes(12, function (err, byte) {
-                const uniqueSuffix = byte.toString('hex').toLowerCase() + path.extname(file.originalname);
+                const uniqueSuffix = byte.toString('hex').toLowerCase() + path.extname(file.originalname);  // Genrate a unique name for each time with ext name
                 cb(null, uniqueSuffix);
             });
 
