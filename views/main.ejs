@@ -8,9 +8,9 @@
         <main class="w-screen   indent-1 bg-black overflow-hidden">
             <div class="cursor w-40 rounded-full h-36 bg-green-700 absolute z-10 pointer-events-none"></div>
 
-            <div id="page1" class="w-screen h-min relative">
+            <div id="page1" class="w-screen h-min relative py-9">
                 <div id="PostContainer"
-                    class="w-full h-fit rounded-md mt-14   relative flex justify-center items-center">
+                    class="w-full h-fit rounded-md mt-14   relative justify-center items-center hidden ">
                     <form action="/Post" method="post" class="w-1/2 mt-8 lg:w-1/3 h-full bg-yellow-300 flex flex-col rounded-md px-8"
                         enctype="multipart/form-data">
                         <input type="hidden" name="user" value="<%= id %> ">
@@ -88,30 +88,30 @@
                     </form>
                 </div>
 
-                <div id="left_sidebar" class="flex right-0 w-[100vw] px-10 gap-6 bottom-0 border-t-2  h-[5vh] lg:w-1/4 lg:h-[88vh]  items-center lg:flex-col fixed lg:left-0 bg-black border-r-2 border-red-800 justify-center z-50">
+                <div id="left_sidebar" class="flex right-0 w-[100vw] px-10 gap-6 bottom-0 p-3 h-[8vh] xl:w-1/3 xl:h-[88vh]  items-center xl:flex-col fixed xl:left-0 bg-black border-t-0 border-r-2 border-red-800 justify-center z-50">
 
 
 
                   
 
 
-                    <span class="w-fit h-fit icon ">
+                    <span class=" h-fit icon ">
 
 
                         <a href="/main" class="  w-full h-full ">
                       
                             <i class="fa-solid fa-house text-3xl lg:text-2xl mt-1"></i>
-                        <p class="hidden lg:block">Home</p>
+                        <p class="hidden xl:block">Home</p>
                         </a>
 
                         
                     </span>
 
 
-                    <span class="w-fit h-fit icon ">
+                    <span class=" h-fit icon ">
                         <label for="ImageUpload_btn" class="  w-full h-full flex gap-3">
                             <i class="fa-solid fa-square-plus text-3xl lg:text-2xl mt-1"></i>
-                            <p class="hidden lg:block">Create</p>
+                            <p class="hidden xl:block">Create</p>
 
                         </label>
 
@@ -123,7 +123,7 @@
 
                     
 
-                    <span class="w-fit h-fit icon ">
+                    <span class=" h-fit icon hidden xl:block">
 
 
                         
@@ -132,25 +132,25 @@
                      
 
                             <i class="fa-solid fa-gauge text-3xl lg:text-2xl mt-1"></i>
-                        <p class="hidden lg:block">Dash Board</p>
+                        <p class="hidden xl:block">Dash Board</p>
                         </a>
                     </span>
 
 
 
 
-                    <span class="w-fit h-fit icon ">
+                    <span class=" h-fit icon ">
 
 
                         
 
                         <a href="/profile" class="  w-full h-full ">
                             <i class="fa-regular fa-user text-3xl lg:text-2xl mt-1"></i> 
-                        <p class="hidden lg:block">Profile</p>
+                        <p class="hidden xl:block">Profile</p>
                         </a>
                     </span>
 
-                    <span class="w-fit h-fit icon ">
+                    <span class=" h-fit icon ">
 
 
                         
@@ -158,7 +158,7 @@
                         <a href="/logout" class="  w-full h-full ">
                             
                             <i class="fa-solid fa-right-from-bracket text-3xl lg:text-2xl mt-1 "></i>
-                        <p class="hidden lg:block">Log Out</p>
+                        <p class="hidden xl:block">Log Out</p>
                         </a>
                     </span>
                 
@@ -167,14 +167,15 @@
                 </div>
 
 
-                <div class="flex flex-col gap-24 w-full items-center mt-9">
+                <div class="bg-black flex flex-col gap-24 w-full  lg:relative  items-center  xl:items-end mt-9">
 
 
 
-                    <!-- Post start -->
+                    
+
 
                     <% Posts.forEach(element=> { %>
-                        <div class="w-[60vw] lg:w-[35vw] lg:h-[95vh] xl:h-[90vh] p-3 border-spacing-1 border-2 border-white rounded-md flex flex-col">
+                        <div class="w-[70vw]  h-max sm:[60vw]  lg:w-[60vw] xl:w-[40vw] lg:h-[95vh] xl:mr-[13vw]  xl:h-[90vh] p-3 border-spacing-1 border-2 border-white rounded-md flex flex-col">
                             <div class=" h-3/4 w-full">
                                 <% if (element.image) { %>
                                <div class="User_container h-10 w-full mb-4">

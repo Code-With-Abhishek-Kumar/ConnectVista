@@ -256,8 +256,10 @@ padding-left: 10px;
   .icon{
     color: white;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* background-color: red; */
+    align-items: start;
+    /* justify-content: center; */
+    width: 50%;
   margin-left: 5vw;
     margin-top: 10px;
    
@@ -272,6 +274,7 @@ padding-left: 10px;
   }
 
   .icon p {
-   font-size: 1.5rem;
+   font-size: 1rem;
+
   
   }
