@@ -11,7 +11,7 @@
             <div id="page1" class="w-screen h-min relative">
                 <div id="PostContainer"
                     class="w-full h-fit rounded-md mt-14   relative flex justify-center items-center">
-                    <form action="/Post" method="post" class="w-1/3 h-full bg-yellow-300 flex flex-col rounded-md px-8"
+                    <form action="/Post" method="post" class="w-1/2 mt-8 lg:w-1/3 h-full bg-yellow-300 flex flex-col rounded-md px-8"
                         enctype="multipart/form-data">
                         <input type="hidden" name="user" value="<%= id %> ">
                         <div class="flex gap-6 mt-8 items-center">
@@ -88,7 +88,7 @@
                     </form>
                 </div>
 
-                <div id="left_sidebar" class="w-1/4 bottom-0 h-[88vh] flex flex-col fixed left-0 bg-black border-r-2 border-red-800 justify-center">
+                <div id="left_sidebar" class="flex right-0 w-[100vw] px-10 gap-6 bottom-0 border-t-2  h-[5vh] lg:w-1/4 lg:h-[88vh]  items-center lg:flex-col fixed lg:left-0 bg-black border-r-2 border-red-800 justify-center z-50">
 
 
 
@@ -100,12 +100,44 @@
 
                         <a href="/main" class="  w-full h-full ">
                       
-                            <i class="fa-solid fa-house  text-2xl mt-1"></i>
-                        <p>Home</p>
+                            <i class="fa-solid fa-house text-3xl lg:text-2xl mt-1"></i>
+                        <p class="hidden lg:block">Home</p>
                         </a>
 
                         
                     </span>
+
+
+                    <span class="w-fit h-fit icon ">
+                        <label for="ImageUpload_btn" class="  w-full h-full flex gap-3">
+                            <i class="fa-solid fa-square-plus text-3xl lg:text-2xl mt-1"></i>
+                            <p class="hidden lg:block">Create</p>
+
+                        </label>
+
+                      
+
+                        
+                    </span>
+
+
+                    
+
+                    <span class="w-fit h-fit icon ">
+
+
+                        
+
+                        <a href="/dashboard" class="  w-full h-full ">
+                     
+
+                            <i class="fa-solid fa-gauge text-3xl lg:text-2xl mt-1"></i>
+                        <p class="hidden lg:block">Dash Board</p>
+                        </a>
+                    </span>
+
+
+
 
                     <span class="w-fit h-fit icon ">
 
@@ -113,10 +145,25 @@
                         
 
                         <a href="/profile" class="  w-full h-full ">
-                            <i class="fa-regular fa-user text-2xl mt-1"></i> 
-                        <p>Profile</p>
+                            <i class="fa-regular fa-user text-3xl lg:text-2xl mt-1"></i> 
+                        <p class="hidden lg:block">Profile</p>
                         </a>
                     </span>
+
+                    <span class="w-fit h-fit icon ">
+
+
+                        
+
+                        <a href="/logout" class="  w-full h-full ">
+                            
+                            <i class="fa-solid fa-right-from-bracket text-3xl lg:text-2xl mt-1 "></i>
+                        <p class="hidden lg:block">Log Out</p>
+                        </a>
+                    </span>
+                
+
+
                 </div>
 
 
@@ -127,7 +174,7 @@
                     <!-- Post start -->
 
                     <% Posts.forEach(element=> { %>
-                        <div class="w-[35vw] h-[90vh] p-3 border-spacing-1 border-2 border-white rounded-md flex flex-col">
+                        <div class="w-[60vw] lg:w-[35vw] lg:h-[95vh] xl:h-[90vh] p-3 border-spacing-1 border-2 border-white rounded-md flex flex-col">
                             <div class=" h-3/4 w-full">
                                 <% if (element.image) { %>
                                <div class="User_container h-10 w-full mb-4">

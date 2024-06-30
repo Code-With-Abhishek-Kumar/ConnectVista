@@ -7,7 +7,7 @@ const { notify } = require('../routes');
 
 
 
-function isLoggedin(req, res, next ){
+function isLogin(req, res, next ){
     const token = req.cookies.token;
      if(!token) res.redirect('/');
      next()
@@ -16,4 +16,4 @@ function isLoggedin(req, res, next ){
 
 
 
-module.exports = isLoggedin;
+module.exports = isLogin;
