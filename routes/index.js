@@ -63,7 +63,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.get('/feed', function (req, res, next) {
+router.get('/feed', isLoggedin , function (req, res, next) {
   // res.render('feed');
   res.redirect('/main')
 
@@ -71,7 +71,16 @@ router.get('/feed', function (req, res, next) {
 });
 
 
-router.get('/Reels', reelsController);
+router.get('/logout',  function (req, res, next) {
+  res.clearCookie('token');
+  res.redirect('/')
+
+
+});
+
+
+
+router.get('/Reels', isLoggedin , reelsController);
 
 
 
@@ -168,7 +177,7 @@ router.post('/login', LoginController);
 router.post('/register', multerConfig.single('Profile_Image'), User)
 
 router.get('/main', isLoggedin, mainController);
-router.post('/edit', isLoggedin, multerConfig.single('Profile_Image'), editController);
+router.post('/edit', isLoggedin , multerConfig.single('Profile_Image'), editController);
 
 
 
