@@ -3,15 +3,15 @@
 
  <%- include('./Include/header') %> 
 
-  <div id="login-form" class="relative">
-    <div id="left">
+  <div id="login-form" class="relative  flex-col lg:flex-row">
+    <div id="left" class="h-2/6 lg:h-full  lg:w-[60%]">
 
-      <h1 class="Brand_name">Adita general store</h1>
-      <p class="brand_description">Adita general store helps you to buy Kirana Product</p>
+      <h1 class="Brand_name">Connect Vista</h1>
+      <p class="brand_description w-full ml-3 sm:w-[70%]  2xl:w-[50%]">Discover a seamless way to connect and collaborate with Connect Vista! Experience secure, efficient communication that enhances your workflow. Join today and stay connected effortlessly. 🌐💬</p>
         
     </div>
-    <div id="right">
-      <div>
+    <div id="right" class="h-1/2  lg:h-full  lg:w-[60%]">
+      <div class="h-full lg:h-1/2     2xl:h-[60%]">
 
         <form action="/login" method="post">
           <input type="text" name="email" placeholder="Enter Your email here">
@@ -29,7 +29,7 @@
 
 
 
-  <div id="Register-form" class="w-screen h-screen  items-center justify-center absolute top-0  left-0  bg-[gainsboro]  hidden">
+  <div id="Register-form" class="w-screen h-screen  items-center justify-center absolute top-0  left-0  bg-[gainsboro]  hidden  ">
 
     <form action="/register" method="post" enctype="multipart/form-data" class="w-4/12 h-4/5 bg-white drop-shadow-xl p-5 gap-4 flex  flex-col">
       <div class="h-1/6 w-full relative">
