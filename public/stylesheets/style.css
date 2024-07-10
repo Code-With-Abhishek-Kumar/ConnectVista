@@ -6,6 +6,37 @@ body , html {
 }
 
 
+/* Assuming your container has a class named 'scroll-container' */
+.scroll-container {
+  /* Set the height and width of your container */
+  height: 400px; /* Adjust as needed */
+  width: 100%; /* Adjust as needed */
+  /* Set overflow to auto to enable scrollbars */
+  overflow: auto;
+  /* Set a black background */
+  background-color: #000; /* or 'black' */
+}
+
+/* Style the scrollbar itself */
+.scroll-container::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  background-color: #000; /* Background color of the scrollbar track */
+}
+
+/* Style the scrollbar thumb */
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners of the thumb */
+}
+
+/* Optional: Style the scrollbar track (if needed) */
+.scroll-container::-webkit-scrollbar-track {
+  background-color: #333; /* Color of the scrollbar track */
+}
+
+
+
+
 body {
 
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;

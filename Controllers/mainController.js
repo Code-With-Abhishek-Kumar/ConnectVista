@@ -1,7 +1,7 @@
 let postSchema = require('../models/postSchema')
 var jwt = require('jsonwebtoken');
 const userSchema = require('../models/userSchema')
-
+const CommentSchema = require('../models/comment');
 let mainController = async function (req, res, next) {
    try {
     const token = req.cookies.token;
@@ -11,12 +11,32 @@ let mainController = async function (req, res, next) {
   
     let User = await userSchema.findOne({ mobileNo_Email: decoded.mobileNo_Email})
     //  console.log(User._id)
-    let Posts = await postSchema.find().populate('user');
+    let Posts   = await postSchema.find()
+    .populate('user')   // Populate the 'user' field
+    .populate({
+      path: 'comment',       // Populate the 'comments' array in posts
+      populate: { path: 'user' } // Populate the 'user' field inside each comment
+  });
 
-    console.log(Posts)
+
+
+
+  //  Posts.comment.forEach
+
+
+  // let Comment   = await CommentSchema.find()
+  // .populate('user')
+  
+  // Comment.save()
+
+  // console.log(Comment)
+
 
   
-   
+   console.log(Posts)
+  // //  console.log(Posts.)
+
+
     // let AllUser = await userSchema.find()
     // console.log(AllUser)
     let data = {
@@ -26,7 +46,9 @@ let mainController = async function (req, res, next) {
       surname: User.surname,
       bio: User.bio,
       id: User._id,
-      Posts,
+      Posts  
+   
+   
      
     
     }

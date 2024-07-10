@@ -11,10 +11,11 @@ let reelsController = require('../Controllers/reelsController')
 const editController = require('../Controllers/editController')
 const LikeController = require('../Controllers/likeController')
 const ProfileController = require('../Controllers/profileController')
+const ViewController = require('../Controllers/Post_View_Controller.js')
 const multerConfig = require('../utility/multerConfig')
 var jwt = require('jsonwebtoken');
 const isLoggedin = require('../Middleware/isLogeedin')
-
+const Comment_Controller = require('../Controllers/CommentController.js')
 const SetNewPasswordController = require('../Controllers/SetNewPasswordController.js')
 const forgotController = require('../Controllers/forgotController.js')
 const  OtpController = require('../Controllers/otpController.js')
@@ -23,6 +24,8 @@ let postSchema = require('../models/postSchema')
 // const connectMongo = require('../Middleware/connection');
 
 const transporter = require('../utility/nodemailer')
+
+
 
 
 
@@ -57,6 +60,16 @@ router.use(function (err, req, res, next) {
   next(err)
 });
 router.get('/', function (req, res, next) {
+
+  const token = req.cookies.token;
+ 
+
+   if(token) res.redirect('main')
+
+
+
+
+
   res.render('index', { title: 'Express' });
 
 
@@ -69,6 +82,17 @@ router.get('/feed', isLoggedin , function (req, res, next) {
 
 
 });
+
+
+router.post('/comment', isLoggedin ,  Comment_Controller.post);
+
+
+// console.log(ViewController)
+
+// console.log(reelsController)
+
+
+router.get('/view/:id', isLoggedin , ViewController );
 
 
 router.get('/logout',  function (req, res, next) {
@@ -86,7 +110,7 @@ router.get('/Reels', isLoggedin , reelsController);
 
 router.get('/like/:id', LikeController );
 
-router.get('/profile', isLoggedin, ProfileController);
+router.get('/profile', isLoggedin , ProfileController);
 
 
 router.get('/profile/:id', isLoggedin ,  async function (req, res, next) {

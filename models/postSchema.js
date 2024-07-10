@@ -16,7 +16,7 @@ let postSchema = mongoose.Schema({
     },
     comment:[{
         type: mongoose.Schema.ObjectId,
-        ref: "user",
+        ref: "comment",
 
     }],
     like:[{

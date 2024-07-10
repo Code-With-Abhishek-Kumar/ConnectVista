@@ -10,6 +10,7 @@ var jwt = require('jsonwebtoken')
 let UserController = async function (req, res, next) {
   try {
 
+
     let { firstName, surname, mobileNo_Email, password, Gender, bio } = req.body
 
 

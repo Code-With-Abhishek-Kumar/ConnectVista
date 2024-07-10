@@ -1,4 +1,4 @@
-'use strict';
+
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config();
 var errorhandler = require('errorhandler')
