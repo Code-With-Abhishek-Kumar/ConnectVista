@@ -40,7 +40,7 @@ let userSchema = mongoose.Schema({
 
 
 
-mongoose.connect(process.env.connect)
+mongoose.connect(process.env.connect || "mongodb://127.0.0.1:27017/test")
   .then(() => console.log('Connected!'));
 
 module.exports = mongoose.model('user', userSchema);

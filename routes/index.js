@@ -110,75 +110,10 @@ router.get('/Reels', isLoggedin , reelsController);
 
 router.get('/like/:id', LikeController );
 
-router.get('/profile', isLoggedin , ProfileController);
+router.get('/profile', isLoggedin , ProfileController.viewProfile);
 
 
-router.get('/profile/:id', isLoggedin ,  async function (req, res, next) {
-  // http://localhost:3000/profile/665be2bcc01b9aa6f8d047ed
-
-  try {
-    // Access the id parameter from the URL
-    const userId = await req.params.id;
-
-    // res.send(userId);
-    let Posts = await postSchema.find({ user: userId })
-    let User = await userSchema.findById(userId)
-
-    if (!User) {
-      // If no user is found, you can throw an error or handle it in some other way
-
-      let error = new Error("No User Found");
-      error.status = 404;
-      throw error;
-    }
-
-
-    //  console.log(await User)
-
-
-    if (!Posts) {
-      // If no user is found, you can throw an error or handle it in some other way
-
-      let error = new Error("No User Found");
-      error.status = 404;
-      throw error;
-    }
-
-    console.log(Posts)
-    // console.log(Posts._id)
-    let Post = Posts.map(function (elem) {
-      //  console.log(elem._id.toString())
-      User.post.push(elem._id.toString())
-      return elem;
-
-    })
-
-    // console.log(User)
-    //  console.log(Post)
-
-
-
-    let data = {
-      title: `👤 Profile ${User.firstName + " " + User.surname}`,
-      ProfilePicture: User.Profile_Image,
-      isAdmin: false,
-      firstName: User.firstName,
-      surname: User.surname,
-      bio: User.bio,
-      mobileNo_Email: User.mobileNo_Email,
-      Post,
-
-    }
-    console.log(await data)
-
-    res.render('profile', data)
-  } catch (error) {
-    res.render('error', { error })
-    // res.send(error.message);
-  }
-
-
-});
+router.get('/profile/:id', isLoggedin ,  ProfileController.editProfile );
 
 
 router.get('/forgot-password', forgotController.ForgotPassword );

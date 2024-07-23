@@ -2,13 +2,17 @@ let postSchema = require('../models/postSchema')
 var jwt = require('jsonwebtoken');
 const userSchema = require('../models/userSchema')
 const CommentSchema = require('../models/comment');
+
+
+
 let mainController = async function (req, res, next) {
    try {
     const token = req.cookies.token;
-    // console.log(cookieValue)
     let secret  =  process.env.secret;
     var decoded = jwt.verify(token, secret);
   
+
+    // find Used based on UserId
     let User = await userSchema.findOne({ mobileNo_Email: decoded.mobileNo_Email})
     //  console.log(User._id)
     let Posts   = await postSchema.find()
@@ -20,25 +24,12 @@ let mainController = async function (req, res, next) {
 
 
 
-
-  //  Posts.comment.forEach
-
-
-  // let Comment   = await CommentSchema.find()
-  // .populate('user')
   
-  // Comment.save()
-
-  // console.log(Comment)
+  //  console.log(Posts)
 
 
-  
-   console.log(Posts)
-  // //  console.log(Posts.)
 
 
-    // let AllUser = await userSchema.find()
-    // console.log(AllUser)
     let data = {
       title:"mainPage",
       ProfilePicture : User.Profile_Image,

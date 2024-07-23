@@ -97,13 +97,17 @@
                                         </div>
 
                                         <!-- commentBox.ejs -->
-                                        <div class="h-[35vh] w-full flex flex-col overflow-y-scroll scroll-container">
+                                        <div class="h-auto w-full flex flex-col overflow-y-scroll scroll-container">
 
                                             <% element.comment.forEach(comment=> { %>
                                                 <div class="flex items-start space-x-4 py-2">
-                                                    <img src="<%- comment.user.Profile_Image %>" alt="Profile Picture"
+                                                    <a href="/profile/<%- comment.user.id %> ">
+
+                                                        <img src="<%- comment.user.Profile_Image %>" alt="Profile Picture"
                                                         class="w-10 h-10 rounded-full">
-                                                    <div class="flex-1">
+                                                    </a>
+                                                  
+                                                    <div class="flex-1 gap-2 m-1">
                                                         <div class="flex items-center space-x-2 text-white">
                                                             <h2 class="text-sm lowercase font-bold text-green-500">
                                                                 <%- comment.user.firstName %> <%- comment.user.surname
@@ -114,7 +118,18 @@
                                                         <p class="text-white mt-1">
                                                             <%- comment.Comment %>
                                                         </p>
+
+
+                                                        <div class="flex-1 items-center space-x-2 mt-2 text-gray-100">
+                                                            <a href="http://"><i class="fa-solid fa-pencil mr-1"></i> Edit </a>
+                                                            <a href="http://"><i class="fa-solid fa-trash mr-1"></i> Delete </a>
+                                                        </div>
                                                     </div>
+
+                                                   
+
+
+                                                  
                                                 </div>
                                                 <% }) %>
                                         </div>
